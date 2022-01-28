@@ -14,3 +14,29 @@ https://github.com/axios/axios
 
 npm install axios
 */
+
+const axios = require('axios');
+
+let url = 'https://jsonplaceholder.typicode.com/users';
+
+function getUsersOptionOne(url) {
+    axios.get(url)
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+async function getUsersOptionTwo(url) {
+    try {
+        const response = await axios.get(url);
+        console.log(response);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getUsersOptionOne(url);
+getUsersOptionTwo(url);

@@ -10,7 +10,37 @@ propiedad del valor con dolar.
 const Wallet = {
     criptos: [],
     status: true,
-    user: ""
+    user: "",
+    setCriptos(criptos) {
+        criptos = criptos;
+    },
+    getCriptos() {
+        return criptos;
+    },
+    totalStableCoin() {
+        var stableCoins = [];
+        stableCoins = criptos.filter(e => (e.stableCoin == true));
+        return stableCoins.length;
+    },
+    totalNoStableCoin() {
+        let noStableCoins = criptos.filter(e => (e.stableCoin == false));
+        return noStableCoins.length;
+    },
+    indexCriptoMayorReservaDinero() {
+        let max = Number(criptos[0].usd);
+        let indexCripto = 0;
+        for (let i = 0; i < criptos.length; i++) {
+            criptoIndex = Number(criptos[i].usd);
+            if (criptoIndex > max) {
+                max = criptoIndex;
+                indexCripto = i;
+            }
+        }
+        return indexCripto;
+    },
+    getCripto(index) {
+        return criptos[index];
+    }
 };
 
 let BTC = {
@@ -36,3 +66,21 @@ let USDT = {
     current: "$1.00",
     stableCoin: true
 };
+
+let criptos = [BTC, ETH, USDT];
+
+let noStableCoins = criptos.filter(function (e) {
+    if (e.stableCoin == false) {
+        return e;
+    }
+});
+
+Wallet.setCriptos(criptos);
+// console.log(Wallet.getCriptos());
+
+console.log("Total Stable Coin:", Wallet.totalStableCoin());
+console.log("Total No Stable Coin:", Wallet.totalNoStableCoin());
+
+let indexCripto = Wallet.indexCriptoMayorReservaDinero();
+let criptoMayor = Wallet.getCripto(indexCripto);
+console.log("Cripto con mayor reserva:", `${criptoMayor.name}`.toUpperCase());

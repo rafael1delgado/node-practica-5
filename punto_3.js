@@ -19,4 +19,14 @@ let Can = {
 
 let Perro = {
    nombre:"tornado",
-}; 
+};
+
+// Perro.__proto__["can"] = Can; // forma alterna 🤔
+Perro.__proto__.can = Can;
+
+console.log(Perro);
+console.log(Perro.__proto__);
+console.log("ladra:", Perro.__proto__.can.ladra);
+console.log("cantidad de patas:", Perro.__proto__.can.cantidadDePatas);
+console.log("correr:", Perro.__proto__.can.__proto__.correr());
+console.log("saltar:", Perro.__proto__.can.__proto__.salta());
