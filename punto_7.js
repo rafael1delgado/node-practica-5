@@ -18,8 +18,7 @@ const Wallet = {
         return criptos;
     },
     totalStableCoin() {
-        var stableCoins = [];
-        stableCoins = criptos.filter(e => (e.stableCoin == true));
+        let stableCoins = criptos.filter(e => (e.stableCoin == true));
         return stableCoins.length;
     },
     totalNoStableCoin() {

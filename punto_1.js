@@ -14,4 +14,3 @@ console.dir(persona);
 console.log(persona.__proto__);
 console.log("edad: ", persona.__proto__.edad);
 console.log("pais", persona.__proto__.pais);
-
