@@ -68,18 +68,13 @@ let USDT = {
 
 let criptos = [BTC, ETH, USDT];
 
-let noStableCoins = criptos.filter(function (e) {
-    if (e.stableCoin == false) {
-        return e;
-    }
-});
-
 Wallet.setCriptos(criptos);
-// console.log(Wallet.getCriptos());
+console.log(Wallet.getCriptos());
 
 console.log("Total Stable Coin:", Wallet.totalStableCoin());
 console.log("Total No Stable Coin:", Wallet.totalNoStableCoin());
 
 let indexCripto = Wallet.indexCriptoMayorReservaDinero();
 let criptoMayor = Wallet.getCripto(indexCripto);
+
 console.log("Cripto con mayor reserva:", `${criptoMayor.name}`.toUpperCase());
