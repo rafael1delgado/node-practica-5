@@ -22,7 +22,7 @@ let url = 'https://jsonplaceholder.typicode.com/users';
 function getUsersOptionOne(url) {
     axios.get(url)
     .then(function (response) {
-        console.log(response);
+        console.log(response.data);
     })
     .catch(function (error) {
         console.log(error);
