@@ -25,7 +25,7 @@ let personas = [{
 let totalMayorEdad = 0;
 let totalMenorEdad = 0;
 let totalPersonas = 0;
-let length = Object.keys(personas).length; // tengo mis dudas si esta bien o no
+let length = personas.length;
 
 for(let i = 0; i < length; i++) {
     if(personas[i].edad >= 18) {
